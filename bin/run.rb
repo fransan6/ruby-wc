@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby
-# run the program from terminal using `./rwc`
 
-_, file = ARGV
+require_relative '../lib/cli'
 
-# method for determining bytes, not yet taking option into account
-def count_bytes(file_path)
-  File.size(file_path)
-end
+option, file = ARGV
 
-puts count_bytes(file)
+cli = CLI.new(option, file)
+cli.start
