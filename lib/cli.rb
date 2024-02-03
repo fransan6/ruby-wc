@@ -19,6 +19,8 @@ class CLI
     case @option
     when '-c'
       puts file.count_bytes(@file)
+    when '-l'
+      puts file.count_lines(@file)
     else
       # to be implemented with option parser
       puts "Please try again or enter '--help' for more information."
