@@ -6,23 +6,23 @@ class CLI
   def initialize(option, file)
     @option = option
     @file = file
+    @file_reader = FileReader.new
   end
 
   def start
-    file_to_be_read = FileReader.new
-    option_input(file_to_be_read)
+    option_input
   end
 
   private
 
-  def option_input(file)
+  def option_input
     case @option
     when '-c'
-      puts file.count_bytes(@file)
+      puts @file_reader.count_bytes(@file)
     when '-l'
-      puts file.count_lines(@file)
+      puts @file_reader.count_lines(@file)
     when '-w'
-      puts file.count_words(@file)
+      puts @file_reader.count_words(@file)
     else
       # to be implemented with option parser
       puts "Please try again or enter '--help' for more information."
