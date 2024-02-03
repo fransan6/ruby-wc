@@ -9,4 +9,8 @@ class FileReader
   def count_lines(file_path)
     File.readlines(file_path).count
   end
+
+  def count_words(file_path)
+    File.read(file_path).split.count
+  end
 end
