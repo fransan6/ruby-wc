@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './file_reader'
 
 class CLI
@@ -8,6 +10,18 @@ class CLI
 
   def start
     file_to_be_read = FileReader.new
-    puts file_to_be_read.count_bytes(@file)
+    option_input(file_to_be_read)
+  end
+
+  private
+
+  def option_input(file)
+    case @option
+    when '-c'
+      puts file.count_bytes(@file)
+    else
+      # to be implemented with option parser
+      puts "Please try again or enter '--help' for more information."
+    end
   end
 end
