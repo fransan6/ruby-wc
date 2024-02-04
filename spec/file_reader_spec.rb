@@ -10,7 +10,7 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
       expect(result).to be_an_instance_of(Integer)
     end
 
-    it 'returns the number of bytes in a file' do
+    it 'returns the number of bytes of a file' do
       expect(result).to eq(342_190)
     end
   end
@@ -48,6 +48,24 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
 
     it 'returns the number of characters in a file' do
       expect(result).to eq(339_292)
+    end
+  end
+
+  describe '#count_characters' do
+    let(:result) { file_reader.count_multiple }
+
+    it 'returns a string' do
+      expect(result).to be_an_instance_of(String)
+    end
+
+    context 'within the string' do
+      it 'returns three numbers' do
+        expect(result.split.count).to be(3)
+      end
+
+      it 'returns the number of lines, words and bytes of a file' do
+        expect(result).to eq('7145 58164 342190')
+      end
     end
   end
 end
