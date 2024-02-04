@@ -1,7 +1,8 @@
 require_relative '../lib/file_reader'
 
 RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
-  let(:file_reader) { FileReader.new('./data/test.txt') }
+  let(:file_contents) { File.read('./data/test.txt') }
+  let(:file_reader) { FileReader.new(file_contents) }
 
   describe '#count_bytes' do
     let(:result) { file_reader.count_bytes }
@@ -51,7 +52,7 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe '#count_characters' do
+  describe '#count_multiple' do
     let(:result) { file_reader.count_multiple }
 
     it 'returns a string' do
