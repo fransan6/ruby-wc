@@ -21,6 +21,7 @@ class CLI
     when '-l' then puts @file_reader.count_lines
     when '-w' then puts @file_reader.count_words
     when '-m' then puts @file_reader.count_characters
+    when nil then puts @file_reader.count_multiple
       # to be implemented with option parser
     else puts "Please try again or enter '--help' for more information."
     end

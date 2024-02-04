@@ -21,4 +21,8 @@ class FileReader
   def count_characters
     File.readlines(@file_path).join.length
   end
+
+  def count_multiple
+    "#{count_lines} #{count_words} #{count_bytes}"
+  end
 end
