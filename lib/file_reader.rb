@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-# contains methods to run on provided file
+# contains methods to run on provided file contents; received as String
 class FileReader
-  def initialize(file_path)
-    @file_path = file_path
+  def initialize(file_contents)
+    @file_contents = file_contents
   end
 
   def count_bytes
-    File.size(@file_path)
+    @file_contents.bytesize
   end
 
   def count_lines
-    File.readlines(@file_path).count
+    @file_contents.split("\n").count
   end
 
   def count_words
-    File.read(@file_path).split.count
+    @file_contents.split.count
   end
 
   def count_characters
-    File.readlines(@file_path).join.length
+    @file_contents.size
   end
 
   def count_multiple
