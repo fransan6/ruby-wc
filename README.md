@@ -20,8 +20,3 @@ It also supports reading from the standard input when the pipeline is used:
 ### Instruction
 
 To run this from your local environment, make sure Ruby 3.3.0 is installed. Clone the repository, run `bundle install` and you are good to go.
-
-### Further features
-
-- Allow for multiple options and multiple files in one entry
-- Utilise Ruby's [Option Parser](https://ruby-doc.org/3.1.2/stdlibs/optparse/OptionParser.html#label-New+to+OptionParser-3F)
