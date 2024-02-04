@@ -2,19 +2,23 @@
 
 # contains methods to run on provided file
 class FileReader
-  def count_bytes(file_path)
-    File.size(file_path)
+  def initialize(file_path)
+    @file_path = file_path
   end
 
-  def count_lines(file_path)
-    File.readlines(file_path).count
+  def count_bytes
+    File.size(@file_path)
   end
 
-  def count_words(file_path)
-    File.read(file_path).split.count
+  def count_lines
+    File.readlines(@file_path).count
   end
 
-  def count_characters(file_path)
-    File.readlines(file_path).join.length
+  def count_words
+    File.read(@file_path).split.count
+  end
+
+  def count_characters
+    File.readlines(@file_path).join.length
   end
 end

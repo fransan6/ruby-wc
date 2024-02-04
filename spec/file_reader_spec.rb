@@ -1,10 +1,10 @@
 require_relative '../lib/file_reader'
 
 RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
-  let(:file_reader) { FileReader.new }
+  let(:file_reader) { FileReader.new('./data/test.txt') }
 
   describe '#count_bytes' do
-    let(:result) { file_reader.count_bytes('./data/test.txt') }
+    let(:result) { file_reader.count_bytes }
 
     it 'returns an integer' do
       expect(result).to be_an_instance_of(Integer)
@@ -16,7 +16,7 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#count_lines' do
-    let(:result) { file_reader.count_lines('./data/test.txt') }
+    let(:result) { file_reader.count_lines }
 
     it 'returns an integer' do
       expect(result).to be_an_instance_of(Integer)
@@ -28,7 +28,7 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#count_words' do
-    let(:result) { file_reader.count_words('./data/test.txt') }
+    let(:result) { file_reader.count_words }
 
     it 'returns an integer' do
       expect(result).to be_an_instance_of(Integer)
@@ -40,7 +40,7 @@ RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#count_characters' do
-    let(:result) { file_reader.count_characters('./data/test.txt') }
+    let(:result) { file_reader.count_characters }
 
     it 'returns an integer' do
       expect(result).to be_an_instance_of(Integer)
