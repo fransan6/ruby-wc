@@ -13,4 +13,8 @@ class FileReader
   def count_words(file_path)
     File.read(file_path).split.count
   end
+
+  def count_characters(file_path)
+    File.readlines(file_path).join.length
+  end
 end
