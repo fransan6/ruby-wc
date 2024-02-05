@@ -3,6 +3,13 @@
 require_relative 'file_reader'
 
 class CLI
+  OPTIONS = {
+    '-c' => :count_bytes,
+    '-l' => :count_lines,
+    '-w' => :count_words,
+    '-m' => :count_characters
+  }.freeze
+
   def initialize(option, file)
     @option = option
     @file = file
@@ -17,14 +24,12 @@ class CLI
   private
 
   def option_input
-    case @option
-    when '-c' then puts @file_reader.count_bytes
-    when '-l' then puts @file_reader.count_lines
-    when '-w' then puts @file_reader.count_words
-    when '-m' then puts @file_reader.count_characters
-    when nil then puts @file_reader.count_multiple
-    else puts "We do not recognise that option. Please try again with either '-c', '-l', '-w', '-m' \
-or you may leave the option blank."
+    if OPTIONS.keys.include?(@option)
+      puts @file_reader.send(OPTIONS[@option])
+    elsif @option.nil?
+      puts @file_reader.count_multiple
+    else
+      puts "Please try again with either '-c', '-l', '-w', '-m' or you may leave the option blank."
     end
   end
 

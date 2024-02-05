@@ -1,6 +1,6 @@
 ### Usage
 
-Ruby version of \*nix command `wc` with options `-c`, `-l`, `-m` and `-w` to analyse a file.
+Ruby version of \*nix command `wc` with options `-c`, `-l`, `-m` and `-w` to analyse a file:
 
 - `-c` prints the byte count
 - `-l` prints the line count
