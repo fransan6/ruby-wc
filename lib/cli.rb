@@ -29,22 +29,18 @@ class CLI
     elsif @option.nil?
       puts @file_reader.count_multiple
     else
-      puts "Please try again with either '-c', '-l', '-w', '-m' or you may leave the option blank."
+      puts "Please try again with either '-c', '-l', '-w', '-m' or you may leave the option blank"
     end
   end
 
   def read_file
     if @file.nil?
       $stdin.read
-    elsif File.exist?(@file) && File.file?(@file)
+    elsif File.file?(@file)
       File.read(@file)
     else
-      check_file
+      puts 'File not found'
+      exit(1)
     end
-  end
-
-  def check_file
-    raise 'File not found.' unless File.exist?(@file)
-    raise 'Path does not point to a regular file.' unless File.file?(@file)
   end
 end
