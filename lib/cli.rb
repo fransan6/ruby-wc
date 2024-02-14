@@ -36,11 +36,18 @@ class CLI
   def read_file
     if @file.nil?
       $stdin.read
-    elsif File.file?(@file)
-      File.read(@file)
     else
-      puts 'File not found'
-      exit(1)
+      begin
+        File.read(@file)
+      rescue StandardError => e
+        puts style_error_message(e.message)
+        exit(1)
+      end
     end
+  end
+
+  def style_error_message(error_message)
+    divided_message = error_message.split(/[@-]/).map(&:strip)
+    "ERROR: #{divided_message[0]} - #{divided_message[-1]}"
   end
 end
