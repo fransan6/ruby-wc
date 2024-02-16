@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# contains methods to run on provided file contents; received as String
 class FileReader
   def initialize(file_contents)
     @file_contents = file_contents
