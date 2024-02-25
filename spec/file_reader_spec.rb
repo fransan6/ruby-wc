@@ -1,19 +1,21 @@
 require_relative '../lib/file_reader'
 
+RSpec.shared_examples 'validates_expected_return_type' do
+  it 'returns an integer' do
+    expect(subject).to be_a(Integer)
+  end
+end
+
 RSpec.describe FileReader do
   let(:file_contents) { File.read('./data/test.txt') }
   let(:file_reader) { FileReader.new(file_contents) }
 
-  shared_examples 'assesses method output' do |method|
-    it 'returns an integer' do
-      expect(file_reader.public_send(method)).to be_an_instance_of(Integer)
-    end
-  end
-
   # TESTS OF COUNT_BYTES METHOD
   describe '#count_bytes' do
     let(:result) { file_reader.count_bytes }
-    include_examples 'assesses method output', :count_bytes
+
+    subject { file_reader.count_bytes }
+    include_examples 'validates_expected_return_type'
 
     it 'returns the number of bytes of a file' do
       expect(result).to eq(342_190)
@@ -23,7 +25,9 @@ RSpec.describe FileReader do
   # TESTS OF COUNT_LINES METHOD
   describe '#count_lines' do
     let(:result) { file_reader.count_lines }
-    include_examples 'assesses method output', :count_lines
+
+    subject { file_reader.count_lines }
+    include_examples 'validates_expected_return_type'
 
     it 'returns the number of lines in a file' do
       expect(result).to eq(7145)
@@ -33,7 +37,9 @@ RSpec.describe FileReader do
   # TESTS OF COUNT_WORDS METHOD
   describe '#count_words' do
     let(:result) { file_reader.count_words }
-    include_examples 'assesses method output', :count_words
+
+    subject { file_reader.count_words }
+    include_examples 'validates_expected_return_type'
 
     it 'returns the number of words in a file' do
       expect(result).to eq(58_164)
@@ -43,7 +49,9 @@ RSpec.describe FileReader do
   # TESTS OF COUNT_CHARACTERS METHOD
   describe '#count_characters' do
     let(:result) { file_reader.count_characters }
-    include_examples 'assesses method output', :count_characters
+
+    subject { file_reader.count_characters }
+    include_examples 'validates_expected_return_type'
 
     it 'returns the number of characters in a file' do
       expect(result).to eq(339_292)
@@ -58,7 +66,7 @@ RSpec.describe FileReader do
       expect(result).to be_an_instance_of(String)
     end
 
-    context 'within the string' do
+    context 'within the string return' do
       it 'returns three numbers' do
         expect(result.split.count).to be(3)
       end
