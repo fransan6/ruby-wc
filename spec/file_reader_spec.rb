@@ -1,6 +1,6 @@
 require_relative '../lib/file_reader'
 
-RSpec.describe FileReader do # rubocop:disable Metrics/BlockLength
+RSpec.describe FileReader do
   let(:file_contents) { File.read('./data/test.txt') }
   let(:file_reader) { FileReader.new(file_contents) }
 
