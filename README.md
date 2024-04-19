@@ -13,7 +13,7 @@ Leaving out the option gives you `-l`, `-w` and `-c`.
 
 `./rwc [option] [filename]`, for example: `./rwc -c myfile.txt`
 
-It also supports reading from the standard input when the pipeline is used:
+It also supports reading from the standard input when pipe is used:
 
 `cat myfile.txt | ./rwc -m`
 

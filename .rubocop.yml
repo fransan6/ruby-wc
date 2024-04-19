@@ -6,3 +6,12 @@ Style/FrozenStringLiteralComment:
 
 Style/Documentation:
   Enabled: false
+
+Layout/IndentationStyle:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
